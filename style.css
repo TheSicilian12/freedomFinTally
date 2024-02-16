@@ -87,11 +87,13 @@ body {
     justify-content: center;
     border-bottom: 1px solid black;
     width: 90%;
+    font-size: 18px;;
 }
 
 .check-info {
     padding-top: 2px;
     padding-bottom: 2px;
+    font-size: 15px;
 }
 
 .total-container {
