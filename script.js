@@ -48,14 +48,20 @@ $(document).ready(function () {
     // Event delegation for form submission
     $(document).on('submit', '.myCheckForm', function (event) {
         event.preventDefault();
-        let inputValue = $(this).find('.input').val(); // Get input value from the submitted form
-        let currentTotal = Number($(this).find('#subTotal').text())
-        $(this).closest('div').find('.content').append('<div>' + inputValue + '</div>'); // Append to the closest content section relative to the form
+        let inputValue = Number($(this).find('.input').val()); // Get input value from the submitted form
 
-        let newTotal = currentTotal + Number(inputValue);
+        if(inputValue > 0) {
+            let currentSubTotal = Number($(this).find('#subTotal').text())
+            let currentTotal = Number($('#total').text())
 
-        $(this).find('#subTotal').text(newTotal);
-        $(this).closest('form').find('.input').val(''); // Clear the input field
+            let newSubTotal = currentSubTotal + inputValue;
+            let newTotal = currentTotal + inputValue;
+
+            $(this).closest('div').find('.content').append('<div>' + inputValue + '</div>'); // Append to the closest content section relative to the form
+            $(this).find('#subTotal').text(newSubTotal);
+            $('#total').text(newTotal);
+            $(this).closest('form').find('.input').val(''); // Clear the input field
+        }
     });
 
     // Event delegation for clear button click

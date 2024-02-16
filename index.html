@@ -33,10 +33,12 @@
         fetch('./checkForm.html')
             .then(response => response.text())
             .then(data => {
-                let ottawaForm = data.replace(/__CHECK_FORM_ID__/g, 'ottawaForm');
+                // let ottawaForm = data.replace(/__CHECK_FORM_ID__/g, 'ottawaForm');
+                let ottawaForm = data;
                 document.getElementById('formContainerOttawa').innerHTML = ottawaForm;
 
-                let limaForm = data.replace(/__CHECK_FORM_ID__/g, 'limaForm');
+                // let limaForm = data.replace(/__CHECK_FORM_ID__/g, 'limaForm');
+                let limaForm = data;
                 document.getElementById('formContainerLima').innerHTML = limaForm;
 
                 var script = document.createElement('script');
