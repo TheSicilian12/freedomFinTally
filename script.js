@@ -49,14 +49,18 @@ $(document).ready(function () {
     $(document).on('submit', '.myForm', function (event) {
         event.preventDefault();
         let inputValue = $(this).find('.input').val(); // Get input value from the submitted form
+        let currentTotal = Number($(this).find('#total').text())
         $(this).closest('div').find('.content').append('<div>' + inputValue + '</div>'); // Append to the closest content section relative to the form
-        console.log('submit')
+
+        let newTotal = currentTotal + Number(inputValue);
+
+        $(this).find('#total').text(newTotal);
     });
 
     // Event delegation for clear button click
     $(document).on('click', '#clearButton', function (event) {
         event.preventDefault();
         $(this).closest('form').find('.content').empty();
-        console.log('clear')
+        $(this).closest('form').find('#total').text('0');
     });
 });
