@@ -48,10 +48,12 @@
             fetch('./cashForm.html')
             .then(response => response.text())
             .then(data => {
-                let ottawaForm = data.replace(/__CASH_FORM_ID__/g, 'ottawaCashForm');
+                // let ottawaForm = data.replace(/__CASH_FORM_ID__/g, 'ottawaCashForm');
+                let ottawaForm = data;
                 document.getElementById('formContainerCashOttawa').innerHTML = ottawaForm;
 
-                let limaForm = data.replace(/__CASH_FORM_ID__/g, 'limaCashForm');
+                // let limaForm = data.replace(/__CASH_FORM_ID__/g, 'limaCashForm');
+                let limaForm = data;
                 document.getElementById('formContainerCashLima').innerHTML = limaForm;
 
                 var script = document.createElement('script');
