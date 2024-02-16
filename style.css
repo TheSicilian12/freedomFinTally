@@ -5,7 +5,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;;
+    font-size: 20px;;
 }
 
 .border {
@@ -37,7 +37,10 @@ body {
 
 .form-input-display {
     display: flex;
+    flex-direction: column;
 }
+
+.display-flex {display: flex}
 
 .content {
     border: 1px solid black;
@@ -54,9 +57,14 @@ body {
 }
 
 .input {
-    font-size: 25px;
+    font-size: 20px;
     width: 40vw;
     margin: 10px;
+}
+
+.subTotal {
+   /* border: 1px solid black; */
+   padding: 10px;
 }
 
 .total {
@@ -65,6 +73,7 @@ body {
 
 .location {
     font-size: 25px;
+    padding-left: 10px;
 }
 
 .myForm {
