@@ -49,12 +49,12 @@ $(document).ready(function () {
     $(document).on('submit', '.myCheckForm', function (event) {
         event.preventDefault();
         let inputValue = $(this).find('.input').val(); // Get input value from the submitted form
-        let currentTotal = Number($(this).find('#total').text())
+        let currentTotal = Number($(this).find('#subTotal').text())
         $(this).closest('div').find('.content').append('<div>' + inputValue + '</div>'); // Append to the closest content section relative to the form
 
         let newTotal = currentTotal + Number(inputValue);
 
-        $(this).find('#total').text(newTotal);
+        $(this).find('#subTotal').text(newTotal);
         $(this).closest('form').find('.input').val(''); // Clear the input field
     });
 
@@ -63,6 +63,6 @@ $(document).ready(function () {
         event.preventDefault();
         $(this).closest('form').find('.content').empty();
         $(this).closest('form').find('.input').val(''); // Clear the input field
-        $(this).closest('form').find('#total').text('0');
+        $(this).closest('form').find('#subTotal').text('0');
     });
 });
