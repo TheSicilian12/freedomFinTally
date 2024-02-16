@@ -101,7 +101,7 @@ body {
     border-radius: 15px;
     display: flex;
     justify-content: center;
-    font-size: 25px;
+    font-size: 20px;
     padding: 2px;
 }
 
@@ -134,13 +134,13 @@ body {
 
 .location-container {
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .location {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-size: 20px;
     padding-left: 10px;
     border-bottom: 1px solid black;
@@ -150,5 +150,5 @@ body {
 .myForm {
     display: flex;
     flex-direction: column;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
