@@ -41,10 +41,6 @@
 // });
 
 $(document).ready(function () {
-    $(".hello").on('click', function () {
-        $(this).addClass('blue');
-    });
-
     // Event delegation for form submission
     $(document).on('submit', '.myCheckForm', function (event) {
         event.preventDefault();
