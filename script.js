@@ -69,6 +69,12 @@ $(document).ready(function () {
         event.preventDefault();
         $(this).closest('form').find('.content').empty();
         $(this).closest('form').find('.input').val(''); // Clear the input field
+
+        let currentTotal = Number($('#total').text());
+        let subTotal =  Number($(this).closest('form').find('#subTotal').text());
+
+        let newTotal = currentTotal - subTotal;
+        $('#total').text(newTotal)
         $(this).closest('form').find('#subTotal').text('0');
     });
 });
