@@ -55,12 +55,14 @@ $(document).ready(function () {
         let newTotal = currentTotal + Number(inputValue);
 
         $(this).find('#total').text(newTotal);
+        $(this).closest('form').find('.input').val(''); // Clear the input field
     });
 
     // Event delegation for clear button click
     $(document).on('click', '#clearButton', function (event) {
         event.preventDefault();
         $(this).closest('form').find('.content').empty();
+        $(this).closest('form').find('.input').val(''); // Clear the input field
         $(this).closest('form').find('#total').text('0');
     });
 });
