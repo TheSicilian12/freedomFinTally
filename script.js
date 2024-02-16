@@ -46,7 +46,7 @@ $(document).ready(function () {
     });
 
     // Event delegation for form submission
-    $(document).on('submit', '.myForm', function (event) {
+    $(document).on('submit', '.myCheckForm', function (event) {
         event.preventDefault();
         let inputValue = $(this).find('.input').val(); // Get input value from the submitted form
         let currentTotal = Number($(this).find('#total').text())
