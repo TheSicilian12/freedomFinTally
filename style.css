@@ -16,6 +16,10 @@ body {
     border: 10px solid black;
 }
 
+.form-input-display {
+    display: flex;
+}
+
 .content {
     border: 1px solid black;
 }
@@ -38,8 +42,7 @@ body {
     font-size: 25px;
 }
 
-.myCheckForm {
+.myForm {
     display: flex;
     flex-direction: column;
-
 }
