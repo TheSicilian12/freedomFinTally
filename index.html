@@ -12,19 +12,23 @@
 <body>
     <div class="total-container">
         <div>Total:</div>
-        <div id="total" class="total"></div>
+        <div id="total" class="total">0</div>
     </div>
 
-    <div class="location">Ottawa, OH</div>
-    <div>
-        <div id="formContainerCashOttawa"></div>
-        <div id="formContainerOttawa"></div>
+    <div class="location-container">
+        <div class="location">Ottawa, OH</div>
+        <div>
+            <div id="formContainerCashOttawa"></div>
+            <div id="formContainerOttawa"></div>
+        </div>
     </div>
 
-    <div class="location">Lima, OH</div>
-    <div>
-        <div id="formContainerCashLima"></div>
-        <div id="formContainerLima"></div>
+    <div class="location-container">
+        <div class="location">Lima, OH</div>
+        <div>
+            <div id="formContainerCashLima"></div>
+            <div id="formContainerLima"></div>
+        </div>
     </div>
 
     <script>
@@ -45,7 +49,7 @@
             })
             .catch(error => console.error('Error fetching checkForm.html:', error));
 
-            fetch('./cashForm.html')
+        fetch('./cashForm.html')
             .then(response => response.text())
             .then(data => {
                 // let ottawaForm = data.replace(/__CASH_FORM_ID__/g, 'ottawaCashForm');

@@ -33,6 +33,8 @@ body {
 
 .button-container {
     padding-left: 10px;
+    width: 40vw;
+
 }
 
 .form-input-display {
@@ -42,8 +44,18 @@ body {
 
 .display-flex {display: flex}
 
+.display-flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
 .content {
+    width: 40vw;
+    padding-left: 20px;
+    margin-left: 5px;
     border: 1px solid black;
+    border-radius: 10px;
+    background: rgba(145, 144, 144, 0.349);
 }
 
 
@@ -59,24 +71,43 @@ body {
 .input {
     font-size: 20px;
     width: 40vw;
-    margin: 10px;
+    margin-bottom: 10px;
+}
+
+.input-type {
+    margin-left: 10px;
+}
+
+.input-type-container {
+    display: flex;
+    justify-content: right;
+    padding-right: 10vw;
 }
 
 .subTotal {
-   /* border: 1px solid black; */
    padding: 10px;
+   display: flex;
+   align-items: center;
+   align-self: center;
 }
 
 .total {
     margin-left: 10px;
 }
 
+.location-container {
+    margin-bottom: 50px;
+}
+
 .location {
     font-size: 25px;
     padding-left: 10px;
+    border-bottom: 1px solid black;
 }
+
 
 .myForm {
     display: flex;
     flex-direction: column;
+    padding-bottom: 10px;
 }

@@ -53,7 +53,7 @@ $(document).ready(function () {
             let newSubTotal = currentSubTotal + inputValue;
             let newTotal = currentTotal + inputValue;
 
-            $(this).closest('div').find('.content').append('<div>' + inputValue + '</div>'); // Append to the closest content section relative to the form
+            $(this).closest('div').find('.content').append('<div>' + '$' + inputValue + '</div>'); // Append to the closest content section relative to the form
             $(this).find('#subTotal').text(newSubTotal);
             $('#total').text(newTotal);
             $(this).closest('form').find('.input').val(''); // Clear the input field
