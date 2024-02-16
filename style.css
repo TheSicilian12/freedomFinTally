@@ -114,14 +114,14 @@ body {
     padding-right: 10vw;
 }
 
+.total-text {
+    margin-right: 5px;
+}
+
 .subTotal {
    display: flex;
     height: 25px;
     margin-right: 10px
-}
-
-.total {
-    margin-left: 10px;
 }
 
 .location-container {
