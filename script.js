@@ -53,7 +53,7 @@ $(document).ready(function () {
             let newSubTotal = currentSubTotal + inputValue;
             let newTotal = currentTotal + inputValue;
 
-            $(this).closest('div').find('.content').append('<div>' + '$' + inputValue + '</div>'); // Append to the closest content section relative to the form
+            $(this).closest('div').find('.content').append('<div class="check-info">' + '$' + inputValue + '</div>'); // Append to the closest content section relative to the form
             $(this).find('#subTotal').text(newSubTotal);
             $('#total').text(newTotal);
             $(this).closest('form').find('.input').val(''); // Clear the input field
@@ -61,6 +61,19 @@ $(document).ready(function () {
     });
 
     // Event delegation for clear button click
+    $(document).on('click', '#clearButton', function (event) {
+        event.preventDefault();
+        $(this).closest('form').find('.content').empty();
+        $(this).closest('form').find('.input').val(''); // Clear the input field
+
+        let currentTotal = Number($('#total').text());
+        let subTotal =  Number($(this).closest('form').find('#subTotal').text());
+
+        let newTotal = currentTotal - subTotal;
+        $('#total').text(newTotal)
+        $(this).closest('form').find('#subTotal').text('0');
+    });
+
     $(document).on('click', '#clearButton', function (event) {
         event.preventDefault();
         $(this).closest('form').find('.content').empty();
