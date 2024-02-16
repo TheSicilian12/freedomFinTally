@@ -18,8 +18,11 @@ body {
 }
 
 .button-submit {
-    width: 20vw;
-    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+    height: 25px;
     font-size: 20px;
     background: var(--mainColor);
     margin-left: auto;
@@ -106,9 +109,10 @@ body {
 }
 
 .input {
-    font-size: 20px;
+    font-size: 15px;
     width: 40vw;
-    height: 25px;
+    height: 20px;
+    border-radius: 5px;
     /* margin-bottom: 10px; */
 }
 
