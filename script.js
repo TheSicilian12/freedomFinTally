@@ -42,10 +42,10 @@
 
 $(document).ready(function () {
     // Event delegation for form submission
-    $(document).on('submit', '.myCheckForm', function (event) {
+    $(document).on('submit', '.myCheckForm, .myCashForm', function (event) {
         event.preventDefault();
         let inputValue = Number($(this).find('.input').val()); // Get input value from the submitted form
-
+        console.log(inputValue)
         if(inputValue > 0) {
             let currentSubTotal = Number($(this).find('#subTotal').text())
             let currentTotal = Number($('#total').text())
