@@ -17,11 +17,13 @@
     <div>Locations</div>
     <div>Ottawa, OH</div>
     <div>
+        <div id="formContainerCashOttawa"></div>
         <div id="formContainerOttawa"></div>
     </div>
 
     <div>Lima, OH</div>
     <div>
+        <div id="formContainerCashLima"></div>
         <div id="formContainerLima"></div>
     </div>
 
@@ -29,10 +31,10 @@
         fetch('./checkForm.html')
             .then(response => response.text())
             .then(data => {
-                let ottawaForm = data.replace(/__FORM_ID__/g, 'ottawaForm');
+                let ottawaForm = data.replace(/__CHECK_FORM_ID__/g, 'ottawaForm');
                 document.getElementById('formContainerOttawa').innerHTML = ottawaForm;
 
-                let limaForm = data.replace(/__FORM_ID__/g, 'limaForm');
+                let limaForm = data.replace(/__CHECK_FORM_ID__/g, 'limaForm');
                 document.getElementById('formContainerLima').innerHTML = limaForm;
 
                 var script = document.createElement('script');
@@ -40,6 +42,21 @@
                 document.body.appendChild(script);
             })
             .catch(error => console.error('Error fetching checkForm.html:', error));
+
+            fetch('./cashForm.html')
+            .then(response => response.text())
+            .then(data => {
+                let ottawaForm = data.replace(/__CASH_FORM_ID__/g, 'ottawaCashForm');
+                document.getElementById('formContainerCashOttawa').innerHTML = ottawaForm;
+
+                let limaForm = data.replace(/__CASH_FORM_ID__/g, 'limaCashForm');
+                document.getElementById('formContainerCashLima').innerHTML = limaForm;
+
+                var script = document.createElement('script');
+                script.src = './script.js';
+                document.body.appendChild(script);
+            })
+            .catch(error => console.error('Error fetching cashForm.html:', error));
     </script>
 
     <!-- <form id="myForm">
