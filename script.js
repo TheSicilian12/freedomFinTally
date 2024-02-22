@@ -41,6 +41,18 @@
 // });
 
 $(document).ready(function () {
+
+
+    // Check the id of the form and toggle content visibility accordingly
+    let formId = $('#formContainerLima').children('form').attr('id');
+    if (formId === 'limaForm') {
+        $('.content').show(); // Show content if form id matches
+    } else {
+        $('.content').hide(); // Hide content if form id doesn't match
+    }
+
+
+
     // Event delegation for form submission
     $(document).on('submit', '.myCheckForm, .myCashForm', function (event) {
         event.preventDefault();
@@ -55,7 +67,7 @@ $(document).ready(function () {
             // .toLocaleString('en', {useGrouping:true})
             // newSubTotal.split(',').join('')
 
-            $(this).closest('div').find('.content').append('<div><div class= "check-info"> ' + '$' + inputValue.toLocaleString('en', {useGrouping:true}) + '</div> <button id="clearCheck" class="button-clear">X</button></div > '); // Append to the closest content section relative to the form
+            $(this).closest('div').find('.content').append('<div><div class= "check-info"> ' + '$' + inputValue.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > '); // Append to the closest content section relative to the form
             $(this).find('#subTotal').text(newSubTotal.toLocaleString('en', { useGrouping: true }));
             $('#total').text(newTotal.toLocaleString('en', { useGrouping: true }));
             $(this).closest('form').find('.input').val(''); // Clear the input field
@@ -100,7 +112,7 @@ $(document).ready(function () {
         let subTotal = Number($(this).closest('form').find('#subTotal').text().split(',').join(''));
 
 
-        currentTotal -= 0.5*checkVal;
+        currentTotal -= 0.5 * checkVal;
         subTotal -= checkVal;
 
         $('#total').text(currentTotal.toLocaleString('en', { useGrouping: true }))
