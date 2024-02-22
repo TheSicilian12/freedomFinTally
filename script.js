@@ -41,36 +41,33 @@
 // });
 
 $(document).ready(function () {
-    let totalVal = 100
+    let totalVal = 0;
+    let ottawaVal = 0;
+    let limaVal = 0;
 
-    // Check the id of the form and toggle content visibility accordingly
-    let formId = $('#formContainerLima').children('form').attr('id');
-    if (formId === 'limaForm') {
-        $('.content').show(); // Show content if form id matches
-    } else {
-        $('.content').hide(); // Hide content if form id doesn't match
-    }
-
-
+    let limaCheck = 0;
+    let limaCash = 0;
 
     // Event delegation for form submission
     $(document).on('submit', '.myCheckForm, .myCashForm', function (event) {
         event.preventDefault();
-        console.log("totalVal: ", totalVal)
-        let inputValue = Number($(this).find('.input').val()); // Get input value from the submitted form
-        console.log(inputValue)
+
+        let inputValue = Number($(this).find('.input').val());
+
+
         if (inputValue > 0) {
             let currentSubTotal = Number($(this).find('#subTotal').text().split(',').join(''))
-            let currentTotal = Number($('#total').text().split(',').join(''))
+            // let currentTotal = Number($('#total').text().split(',').join(''))
 
             let newSubTotal = currentSubTotal + inputValue;
-            let newTotal = currentTotal + inputValue;
-            // .toLocaleString('en', {useGrouping:true})
-            // newSubTotal.split(',').join('')
+            // let newTotal = currentTotal + inputValue;
+
+            totalVal += inputValue;
+
 
             $(this).closest('div').find('.content').append('<div><div class= "check-info"> ' + '$' + inputValue.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > '); // Append to the closest content section relative to the form
             $(this).find('#subTotal').text(newSubTotal.toLocaleString('en', { useGrouping: true }));
-            $('#total').text(newTotal.toLocaleString('en', { useGrouping: true }));
+            $('#total').text(totalVal.toLocaleString('en', { useGrouping: true }));
             $(this).closest('form').find('.input').val(''); // Clear the input field
         }
     });
