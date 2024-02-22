@@ -41,7 +41,7 @@
 // });
 
 $(document).ready(function () {
-
+    let totalVal = 100
 
     // Check the id of the form and toggle content visibility accordingly
     let formId = $('#formContainerLima').children('form').attr('id');
@@ -56,6 +56,7 @@ $(document).ready(function () {
     // Event delegation for form submission
     $(document).on('submit', '.myCheckForm, .myCashForm', function (event) {
         event.preventDefault();
+        console.log("totalVal: ", totalVal)
         let inputValue = Number($(this).find('.input').val()); // Get input value from the submitted form
         console.log(inputValue)
         if (inputValue > 0) {
