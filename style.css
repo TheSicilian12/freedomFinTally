@@ -17,6 +17,10 @@ body {
     border: 10px solid black;
 }
 
+.hidden {
+    display: none;
+}
+
 .button-submit {
     display: flex;
     justify-content: center;

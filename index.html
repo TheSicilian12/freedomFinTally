@@ -20,7 +20,7 @@
         <div class="location">Ottawa, OH</div>
         <div>
             <div id="formContainerCashOttawa"></div>
-            <div id="formContainerOttawa"></div>
+            <div id="form1"></div>
         </div>
     </div>
 
@@ -44,12 +44,13 @@
         fetch('./checkForm.html')
             .then(response => response.text())
             .then(data => {
-                // let ottawaForm = data.replace(/__CHECK_FORM_ID__/g, 'ottawaForm');
-                let ottawaForm = data;
-                document.getElementById('formContainerOttawa').innerHTML = ottawaForm;
+                let ottawaForm = data.replace(/__CHECK_FORM_ID__/g, 'ottawaForm');
+                // console.log(Form1)
+                document.getElementById('form1').innerHTML = ottawaForm;
 
-                // let limaForm = data.replace(/__CHECK_FORM_ID__/g, 'limaForm');
-                let limaForm = data;
+
+                let limaForm = data.replace(/__CHECK_FORM_ID__/g, 'limaForm');
+                // let limaForm = data;
                 document.getElementById('formContainerLima').innerHTML = limaForm;
 
                 var script = document.createElement('script');
