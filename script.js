@@ -49,11 +49,14 @@ $(document).ready(function () {
     let limaCash = 0;
 
     // Event delegation for form submission
-    $(document).on('submit', '.myCheckForm, .myCashForm', function (event) {
+    $(document).on('submit', '#checkForm, #cashForm', function (event) {
         event.preventDefault();
 
         let inputValue = Number($(this).find('.input').val());
-
+        let formId = $(this).attr('id');
+        let formSource = $(this).data('source');
+        // console.log(formId)
+        console.log(formSource)
 
         if (inputValue > 0) {
             let currentSubTotal = Number($(this).find('#subTotal').text().split(',').join(''))
