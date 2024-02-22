@@ -46,7 +46,7 @@ $(document).ready(function () {
         event.preventDefault();
         let inputValue = Number($(this).find('.input').val()); // Get input value from the submitted form
         console.log(inputValue)
-        if(inputValue > 0) {
+        if (inputValue > 0) {
             let currentSubTotal = Number($(this).find('#subTotal').text().split(',').join(''))
             let currentTotal = Number($('#total').text().split(',').join(''))
 
@@ -55,9 +55,9 @@ $(document).ready(function () {
             // .toLocaleString('en', {useGrouping:true})
             // newSubTotal.split(',').join('')
 
-            $(this).closest('div').find('.content').append('<div class="check-info">' + '$' + inputValue.toLocaleString('en', {useGrouping:true}) + '</div>'); // Append to the closest content section relative to the form
-            $(this).find('#subTotal').text(newSubTotal.toLocaleString('en', {useGrouping:true}));
-            $('#total').text(newTotal.toLocaleString('en', {useGrouping:true}));
+            $(this).closest('div').find('.content').append('<div><div class= "check-info"> ' + '$' + inputValue.toLocaleString('en', {useGrouping:true}) + '</div> <button id="clearButton" class="button-clear">X</button></div > '); // Append to the closest content section relative to the form
+            $(this).find('#subTotal').text(newSubTotal.toLocaleString('en', { useGrouping: true }));
+            $('#total').text(newTotal.toLocaleString('en', { useGrouping: true }));
             $(this).closest('form').find('.input').val(''); // Clear the input field
         }
     });
@@ -69,10 +69,10 @@ $(document).ready(function () {
         $(this).closest('form').find('.input').val(''); // Clear the input field
 
         let currentTotal = Number($('#total').text().split(',').join(''));
-        let subTotal =  Number($(this).closest('form').find('#subTotal').text().split(',').join(''));
+        let subTotal = Number($(this).closest('form').find('#subTotal').text().split(',').join(''));
 
         let newTotal = currentTotal - subTotal;
-        $('#total').text(newTotal.toLocaleString('en', {useGrouping:true}))
+        $('#total').text(newTotal.toLocaleString('en', { useGrouping: true }))
         $(this).closest('form').find('#subTotal').text('0');
     });
 
@@ -82,10 +82,10 @@ $(document).ready(function () {
         $(this).closest('form').find('.input').val(''); // Clear the input field
 
         let currentTotal = Number($('#total').text().split(',').join(''));
-        let subTotal =  Number($(this).closest('form').find('#subTotal').text().split(',').join(''));
+        let subTotal = Number($(this).closest('form').find('#subTotal').text().split(',').join(''));
 
         let newTotal = currentTotal - subTotal;
-        $('#total').text(newTotal.toLocaleString('en', {useGrouping:true}))
+        $('#total').text(newTotal.toLocaleString('en', { useGrouping: true }))
         $(this).closest('form').find('#subTotal').text('0');
     });
 });
