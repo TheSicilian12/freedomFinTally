@@ -88,6 +88,7 @@ $(document).ready(function () {
     $(document).on('click', '#clearButton', function (event) {
         event.preventDefault();
         $(this).closest('form').find('.content').empty();
+        $(this).closest('form').find('.content').append('<div class="checks-text">Checks</div>');
         $(this).closest('form').find('.input').val(''); // Clear the input field
 
         let currentTotal = Number($('#total').text().split(',').join(''));
