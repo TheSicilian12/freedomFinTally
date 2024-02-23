@@ -94,11 +94,13 @@ $(document).ready(function () {
         let currentTotal = Number($('#total').text().split(',').join(''));
         let subTotal = Number($(this).closest('form').find('#subTotal').text().split(',').join(''));
 
-        let newTotal = currentTotal - subTotal;
-        $('#total').text(newTotal.toLocaleString('en', { useGrouping: true }))
+        totalVal -= subTotal;
+
+        let clearType = $(this).attr('id');
+
+        // let newTotal = currentTotal - subTotal;
+        $('#total').text(totalVal.toLocaleString('en', { useGrouping: true }))
         $(this).closest('form').find('#subTotal').text('0');
-
-
     });
 
     // $(document).on('click', '#clearButton', function (event) {
@@ -116,6 +118,9 @@ $(document).ready(function () {
 
     $(document).on('click', '#clearCheck', function (event) {
         event.preventDefault();
+
+        let formId = $(this).attr('id');
+        console.log(formId)
 
         let parent = $(this).parent();
         let checkDiv = parent.find('.check-info');
