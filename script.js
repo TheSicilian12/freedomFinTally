@@ -104,19 +104,6 @@ $(document).ready(function () {
         $(this).closest('form').find('#subTotal').text('0');
     });
 
-    // $(document).on('click', '#clearButton', function (event) {
-    //     event.preventDefault();
-    //     $(this).closest('form').find('.content').empty();
-    //     $(this).closest('form').find('.input').val(''); // Clear the input field
-
-    //     let currentTotal = Number($('#total').text().split(',').join(''));
-    //     let subTotal = Number($(this).closest('form').find('#subTotal').text().split(',').join(''));
-
-    //     let newTotal = currentTotal - subTotal;
-    //     $('#total').text(newTotal.toLocaleString('en', { useGrouping: true }))
-    //     $(this).closest('form').find('#subTotal').text('0');
-    // });
-
     $(document).on('click', '#clearCheck', function (event) {
         event.preventDefault();
         console.log("clearCheck")
