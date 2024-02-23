@@ -42,11 +42,8 @@
 
 $(document).ready(function () {
     let totalVal = 0;
-    let ottawaVal = 0;
-    let limaVal = 0;
-
-    let limaCheck = 0;
-    let limaCash = 0;
+    let cashSubTotal = 0;
+    let checkSubTotal = 0;
 
     // Event delegation for form submission
     $(document).on('submit', '#checkForm, #cashForm', function (event) {
@@ -55,8 +52,7 @@ $(document).ready(function () {
         let inputValue = Number($(this).find('.input').val());
         let formId = $(this).attr('id');
         let formSource = $(this).data('source');
-        // console.log(formId)
-        console.log(formSource)
+
 
         if (inputValue > 0) {
             let currentSubTotal = Number($(this).find('#subTotal').text().split(',').join(''))
@@ -66,12 +62,21 @@ $(document).ready(function () {
             // let newTotal = currentTotal + inputValue;
 
             totalVal += inputValue;
-
+            console.log(formId, formId === "cashForm")
+            if (formId === "cashForm") {
+                cashSubTotal += inputValue;
+            }
+            else checkSubTotal += inputValue;
 
             $(this).closest('div').find('.content').append('<div><div class= "check-info"> ' + '$' + inputValue.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > '); // Append to the closest content section relative to the form
             $(this).find('#subTotal').text(newSubTotal.toLocaleString('en', { useGrouping: true }));
             $('#total').text(totalVal.toLocaleString('en', { useGrouping: true }));
             $(this).closest('form').find('.input').val(''); // Clear the input field
+
+
+            $("#report-total").text(totalVal)
+            $("#report-cash-subTotal").text(cashSubTotal);
+            $("#report-check-subTotal").text(checkSubTotal);
         }
     });
 
@@ -87,6 +92,8 @@ $(document).ready(function () {
         let newTotal = currentTotal - subTotal;
         $('#total').text(newTotal.toLocaleString('en', { useGrouping: true }))
         $(this).closest('form').find('#subTotal').text('0');
+
+
     });
 
     // $(document).on('click', '#clearButton', function (event) {
