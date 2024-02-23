@@ -73,7 +73,7 @@ $(document).ready(function () {
                 checkCounter++;
             }
 
-            $(this).closest('div').find('.content').append('<div><div class= "check-info"> ' + '$' + inputValue.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > '); // Append to the closest content section relative to the form
+            $(this).closest('div').find('.content').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + inputValue.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > '); // Append to the closest content section relative to the form
             $(this).find('#subTotal').text(newSubTotal.toLocaleString('en', { useGrouping: true }));
             $('#total').text(totalVal.toLocaleString('en', { useGrouping: true }));
             $(this).closest('form').find('.input').val(''); // Clear the input field
