@@ -54,6 +54,7 @@ $(document).ready(function () {
         let formId = $(this).attr('id');
         let formSource = $(this).data('source');
 
+        syncDivContent();
 
         if (inputValue > 0) {
             let currentSubTotal = Number($(this).find('#subTotal').text().split(',').join(''))
