@@ -60,21 +60,6 @@
     </div>
 
     <script>
-        const source = document.getElementById("total");
-        const target = document.getElementById("sync-div");
-
-        // Function to sync the content of targetDiv with sourceDiv
-        function syncDivContent() {
-            target.textContent = source.textContent;
-            console.log("sync function")
-        }
-
-        // Initially sync the content
-        syncDivContent();
-
-        // Add event listener to sync the content whenever sourceDiv content changes
-        source.addEventListener('input', syncDivContent);
-
         fetch('./checkForm.html')
             .then(response => response.text())
             .then(data => {

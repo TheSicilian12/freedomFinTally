@@ -54,32 +54,30 @@ $(document).ready(function () {
         let formId = $(this).attr('id');
         let formSource = $(this).data('source');
 
-        syncDivContent();
-
         if (inputValue > 0) {
             let currentSubTotal = Number($(this).find('#subTotal').text().split(',').join(''))
-            // let currentTotal = Number($('#total').text().split(',').join(''))
+            let currentTotal = Number($('#total').text().split(',').join(''))
 
             let newSubTotal = currentSubTotal + inputValue;
-            // let newTotal = currentTotal + inputValue;
+            let newTotal = currentTotal + inputValue;
 
-            totalVal += inputValue;
-            console.log(formId, formId === "cashForm")
-            if (formId === "cashForm") {
-                cashSubTotal += inputValue;
-            }
-            else {
-                checkSubTotal += inputValue;
-                checkCounter++;
-            }
+            // totalVal += inputValue;
+            // console.log(formId, formId === "cashForm")
+            // if (formId === "cashForm") {
+            //     cashSubTotal += inputValue;
+            // }
+            // else {
+            //     checkSubTotal += inputValue;
+            //     checkCounter++;
+            // }
 
             $(this).closest('div').find('.content').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + inputValue.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > '); // Append to the closest content section relative to the form
             $(this).find('#subTotal').text(newSubTotal.toLocaleString('en', { useGrouping: true }));
-            $('#total').text(totalVal.toLocaleString('en', { useGrouping: true }));
+            $('#total').text(newTotal.toLocaleString('en', { useGrouping: true }));
             $(this).closest('form').find('.input').val(''); // Clear the input field
 
 
-            $("#report-total").text(totalVal)
+            $("#report-total").text(newTotal)
             $("#report-cash-subTotal").text(cashSubTotal);
             $("#report-check-subTotal").text(checkSubTotal);
             $("#report-check-tally").text(checkCounter);
@@ -95,12 +93,14 @@ $(document).ready(function () {
         let currentTotal = Number($('#total').text().split(',').join(''));
         let subTotal = Number($(this).closest('form').find('#subTotal').text().split(',').join(''));
 
-        totalVal -= subTotal;
+        // totalVal -= subTotal;
+
+        currentTotal -= subTotal;
 
         let clearType = $(this).attr('id');
 
         // let newTotal = currentTotal - subTotal;
-        $('#total').text(totalVal.toLocaleString('en', { useGrouping: true }))
+        $('#total').text(currentTotal.toLocaleString('en', { useGrouping: true }))
         $(this).closest('form').find('#subTotal').text('0');
     });
 
@@ -119,7 +119,7 @@ $(document).ready(function () {
 
     $(document).on('click', '#clearCheck', function (event) {
         event.preventDefault();
-
+        console.log("clearCheck")
         let formId = $(this).attr('id');
         console.log(formId)
 

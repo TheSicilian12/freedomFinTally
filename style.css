@@ -99,13 +99,14 @@ body {
 }
 
 .check-info {
-    padding: 2px 10px 2px;
+    padding-right: 10px;
     font-size: 15px;
 }
 
 .check-info-container {
     display: flex;
     justify-content: right;
+    padding-top: 5px;
     width: 90%;
 }
 
