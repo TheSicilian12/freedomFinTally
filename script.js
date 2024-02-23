@@ -44,6 +44,7 @@ $(document).ready(function () {
     let totalVal = 0;
     let cashSubTotal = 0;
     let checkSubTotal = 0;
+    let checkCounter = 0;
 
     // Event delegation for form submission
     $(document).on('submit', '#checkForm, #cashForm', function (event) {
@@ -66,7 +67,10 @@ $(document).ready(function () {
             if (formId === "cashForm") {
                 cashSubTotal += inputValue;
             }
-            else checkSubTotal += inputValue;
+            else {
+                checkSubTotal += inputValue;
+                checkCounter++;
+            }
 
             $(this).closest('div').find('.content').append('<div><div class= "check-info"> ' + '$' + inputValue.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > '); // Append to the closest content section relative to the form
             $(this).find('#subTotal').text(newSubTotal.toLocaleString('en', { useGrouping: true }));
@@ -77,6 +81,7 @@ $(document).ready(function () {
             $("#report-total").text(totalVal)
             $("#report-cash-subTotal").text(cashSubTotal);
             $("#report-check-subTotal").text(checkSubTotal);
+            $("#report-check-tally").text(checkCounter);
         }
     });
 
