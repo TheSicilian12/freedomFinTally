@@ -31,8 +31,6 @@ $(document).ready(function () {
         let currentTotal = Number($('#total').text().split(',').join(''));
         let subTotal = Number($(this).closest('form').find('#subTotal').text().split(',').join(''));
 
-        // totalVal -= subTotal;
-
         currentTotal -= subTotal;
 
         let clearType = $(this).attr('id');
@@ -54,7 +52,6 @@ $(document).ready(function () {
 
         let currentTotal = Number($('#total').text().split(',').join(''));
         let subTotal = Number($(this).closest('form').find('#subTotal').text().split(',').join(''));
-
 
         currentTotal -= 0.5 * checkVal;
         subTotal -= checkVal;
