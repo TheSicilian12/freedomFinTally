@@ -29,9 +29,6 @@ $(document).ready(function () {
         $('#lima-cash-subTotal').text((limaCashVal + limaCashSubTotal).toLocaleString('en', { useGrouping: true }));
         $('#lima-check-subTotal').text((limaCheckVal + limaCheckSubTotal).toLocaleString('en', { useGrouping: true }));
 
-        let newTotal = $('#total').text();
-        $('#report-total').text(newTotal);
-
         if (ottawaCheckVal) {
             $('#ottawa-add-checks').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + ottawaCheckVal.toLocaleString('en', { useGrouping: true }) + '</div> <button class="button-clear ottawa-clearCheck">X</button></div > ');
         }
