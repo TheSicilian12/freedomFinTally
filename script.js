@@ -31,10 +31,10 @@ $(document).ready(function () {
 
 
         if (ottawaCheckVal) {
-            $('#ottawa-add-checks').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + ottawaCheckVal.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > ');
+            $('#ottawa-add-checks').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + ottawaCheckVal.toLocaleString('en', { useGrouping: true }) + '</div> <button class="button-clear ottawa-clearCheck">X</button></div > ');
         }
         if (limaCheckVal) {
-            $('#lima-add-checks').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + limaCheckVal.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > ');
+            $('#lima-add-checks').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + limaCheckVal.toLocaleString('en', { useGrouping: true }) + '</div> <button class="button-clear lima-clearCheck">X</button></div > ');
         }
     });
 
@@ -79,6 +79,39 @@ $(document).ready(function () {
         $('#lima-add-checks').empty();
         $('#total').text((totalValue - limaCheckSubTotal).toLocaleString('en', { useGrouping: true }));
     });
+
+    $(document).on('click', '.lima-clearCheck', function (event) {
+        event.preventDefault();
+
+        let totalValue = Number($('#total').text().split(',').join(''));
+        let limaCheckSubTotal = Number($('#lima-check-subTotal').text().split(',').join(''));
+
+        let parent = $(this).parent();
+        let checkDiv = parent.find('.check-info');
+        let checkVal = parseFloat(checkDiv.text().replace('$', '').replace(/,/g, ''));
+
+        $('#lima-check-subTotal').text((limaCheckSubTotal - checkVal).toLocaleString('en', { useGrouping: true }));
+        $('#total').text((totalValue - checkVal).toLocaleString('en', { useGrouping: true }));
+
+        parent.remove();
+    });
+
+    $(document).on('click', '.ottawa-clearCheck', function (event) {
+        event.preventDefault();
+
+        let totalValue = Number($('#total').text().split(',').join(''));
+        let ottawaCheckSubTotal = Number($('#ottawa-check-subTotal').text().split(',').join(''));
+
+        let parent = $(this).parent();
+        let checkDiv = parent.find('.check-info');
+        let checkVal = parseFloat(checkDiv.text().replace('$', '').replace(/,/g, ''));
+
+        $('#ottawa-check-subTotal').text((ottawaCheckSubTotal - checkVal).toLocaleString('en', { useGrouping: true }));
+        $('#total').text((totalValue - checkVal).toLocaleString('en', { useGrouping: true }));
+
+        parent.remove();
+    });
+
 
 });
 
