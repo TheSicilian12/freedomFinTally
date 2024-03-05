@@ -33,6 +33,9 @@ $(document).ready(function () {
         if (ottawaCheckVal) {
            $('#ottawa-check-content').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + ottawaCheckVal.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > ');
         }
+        if (limaCheckVal) {
+            $('#lima-check-content').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + limaCheckVal.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > ');
+        }
 
 
     });
