@@ -3,6 +3,9 @@ $(document).ready(function () {
         event.preventDefault();
 
         let totalValue = Number($('#total').text());
+        let ottawaCashSubTotal = Number($('#ottawa-cash-subTotal').text());
+        let ottawaCheckSubTotal = Number($('#ottawa-check-subTotal').text());
+
 
         let ottawaCashVal = Number($("#ottawa-cash-input").val());
         $('#ottawa-cash-input').val('');
@@ -11,6 +14,16 @@ $(document).ready(function () {
         $('#ottawa-check-input').val('');
 
         $('#total').text(totalValue + ottawaCashVal + ottawaCheckVal);
+        $('#ottawa-cash-subTotal').text(ottawaCashVal + ottawaCashSubTotal);
+        $('#ottawa-check-subTotal').text(ottawaCheckVal + ottawaCheckSubTotal);
+
+
+
+        if (ottawaCheckVal) {
+           $('#ottawa-check-content').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + ottawaCheckVal.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > ');
+        }
+
+
     });
 });
 
