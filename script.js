@@ -1,13 +1,16 @@
 $(document).ready(function () {
-    $(document).on('submit', '#ottawa-cash-form', function (event) {
+    $(document).on('submit', '#ottawa-cash-form, #ottawa-check-form', function (event) {
         event.preventDefault();
 
         let totalValue = Number($('#total').text());
 
-        let inputValue = Number($("#ottawa-cash-input").val());
+        let ottawaCashVal = Number($("#ottawa-cash-input").val());
         $('#ottawa-cash-input').val('');
 
-        $('#total').text(totalValue + inputValue);
+        let ottawaCheckVal = Number($("#ottawa-check-input").val());
+        $('#ottawa-check-input').val('');
+
+        $('#total').text(totalValue + ottawaCashVal + ottawaCheckVal);
     });
 });
 
