@@ -31,15 +31,25 @@ $(document).ready(function () {
 
 
         if (ottawaCheckVal) {
-           $('#ottawa-check-content').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + ottawaCheckVal.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > ');
+            $('#ottawa-check-content').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + ottawaCheckVal.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > ');
         }
         if (limaCheckVal) {
             $('#lima-check-content').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + limaCheckVal.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > ');
         }
-
-
     });
+
+    $(document).on('click', '#ottawa-cash-clearButton', function (event) {
+        event.preventDefault();
+
+        let totalValue = Number($('#total').text().split(',').join(''));
+        let ottawaCashSubTotal = Number($('#ottawa-cash-subTotal').text().split(',').join(''));
+
+        $('#ottawa-cash-subTotal').text(0);
+        $('#total').text((totalValue - ottawaCashSubTotal).toLocaleString('en', { useGrouping: true }));
+    });
+
 });
+
 
 
 
