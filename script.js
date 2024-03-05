@@ -1,7 +1,13 @@
 $(document).ready(function () {
     $(document).on('submit', '#ottawa-cash-form', function (event) {
         event.preventDefault();
-      
+
+        let totalValue = Number($('#total').text());
+
+        let inputValue = Number($("#ottawa-cash-input").val());
+        $('#ottawa-cash-input').val('');
+
+        $('#total').text(totalValue + inputValue);
     });
 });
 
