@@ -1,7 +1,13 @@
+$(document).ready(function () {
+    $(document).on('submit', '#ottawa-cash-form', function (event) {
+        event.preventDefault();
+      
+    });
+});
 
 
 
-// $(document).ready(function () {
+
 //     // Event delegation for form submission
 //     $(document).on('submit', '#checkForm, #cashForm', function (event) {
 //         event.preventDefault();
