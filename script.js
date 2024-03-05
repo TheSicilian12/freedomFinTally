@@ -1,10 +1,12 @@
 $(document).ready(function () {
-    $(document).on('submit', '#ottawa-cash-form, #ottawa-check-form', function (event) {
+    $(document).on('submit', '#ottawa-cash-form, #ottawa-check-form, #lima-cash-form, #lima-check-form', function (event) {
         event.preventDefault();
 
         let totalValue = Number($('#total').text());
         let ottawaCashSubTotal = Number($('#ottawa-cash-subTotal').text());
         let ottawaCheckSubTotal = Number($('#ottawa-check-subTotal').text());
+        let limaCashSubTotal = Number($('#lima-cash-subTotal').text());
+        let limaCheckSubTotal = Number($('#lima-check-subTotal').text());
 
 
         let ottawaCashVal = Number($("#ottawa-cash-input").val());
@@ -13,10 +15,19 @@ $(document).ready(function () {
         let ottawaCheckVal = Number($("#ottawa-check-input").val());
         $('#ottawa-check-input').val('');
 
-        $('#total').text(totalValue + ottawaCashVal + ottawaCheckVal);
+        let limaCashVal = Number($("#lima-cash-input").val());
+        $('#lima-cash-input').val('');
+
+        let limaCheckVal = Number($("#lima-check-input").val());
+        $('#lima-check-input').val('');
+
+        $('#total').text(totalValue + ottawaCashVal + ottawaCheckVal + limaCashVal + limaCheckVal);
+
         $('#ottawa-cash-subTotal').text(ottawaCashVal + ottawaCashSubTotal);
         $('#ottawa-check-subTotal').text(ottawaCheckVal + ottawaCheckSubTotal);
 
+        $('#lima-cash-subTotal').text(limaCashVal + limaCashSubTotal);
+        $('#lima-check-subTotal').text(limaCheckVal + limaCheckSubTotal);
 
 
         if (ottawaCheckVal) {

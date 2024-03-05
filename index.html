@@ -64,13 +64,52 @@
         </div>
     </div>
 
-    <!-- <div class="location-container">
+    <div class="location-container">
         <div class="location">Lima, OH</div>
         <div>
-            <div id="formContainerCashLima"></div>
-            <div id="formContainerLima"></div>
+            <div>
+                <form id="lima-cash-form" class="myCashForm myForm">
+                    <div class="display-flex">
+                        <div class="display-flex form-right">
+                            <input id="lima-cash-input" class="input" placeholder="Cash" />
+                            <button type="submit" class="button-submit">✓</button>
+                        </div>
+
+                        <div class="display-flex form-left">
+                            <div>$</div>
+                            <div id="lima-cash-subTotal" class="subTotal">0</div>
+                            <button id="lima-cash-clearButton" class="button-clear">X</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div>
+                <form id="lima-check-form" class="myCheckForm myForm">
+                    <div class="display-flex">
+                        <div class="display-flex-col form-right">
+                            <div class="display-flex">
+                                <input id="lima-check-input" class="input" placeholder="Checks" />
+                                <button type="submit" class="button-submit">✓</button>
+                            </div>
+                        </div>
+
+                        <div class="display-flex-col">
+                            <div class="display-flex form-left">
+                                <div>$</div>
+                                <div id="lima-check-subTotal" class="subTotal">0</div>
+                                <button id="lima-check-clearButton" class="button-clear">X</button>
+                            </div>
+
+                            <div id="lima-check-content" class="content">
+                                <div class="checks-text">Checks</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div> -->
+    </div>
 
 </body>
 
