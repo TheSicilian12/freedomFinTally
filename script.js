@@ -2,32 +2,32 @@ $(document).ready(function () {
     $(document).on('submit', '#ottawa-cash-form, #ottawa-check-form, #lima-cash-form, #lima-check-form', function (event) {
         event.preventDefault();
 
-        let totalValue = Number($('#total').text());
-        let ottawaCashSubTotal = Number($('#ottawa-cash-subTotal').text());
-        let ottawaCheckSubTotal = Number($('#ottawa-check-subTotal').text());
-        let limaCashSubTotal = Number($('#lima-cash-subTotal').text());
-        let limaCheckSubTotal = Number($('#lima-check-subTotal').text());
+        let totalValue = Number($('#total').text().split(',').join(''));
+        let ottawaCashSubTotal = Number($('#ottawa-cash-subTotal').text().split(',').join(''));
+        let ottawaCheckSubTotal = Number($('#ottawa-check-subTotal').text().split(',').join(''));
+        let limaCashSubTotal = Number($('#lima-cash-subTotal').text().split(',').join(''));
+        let limaCheckSubTotal = Number($('#lima-check-subTotal').text().split(',').join(''));
 
 
-        let ottawaCashVal = Number($("#ottawa-cash-input").val());
+        let ottawaCashVal = Number($("#ottawa-cash-input").val().split(',').join(''));
         $('#ottawa-cash-input').val('');
 
-        let ottawaCheckVal = Number($("#ottawa-check-input").val());
+        let ottawaCheckVal = Number($("#ottawa-check-input").val().split(',').join(''));
         $('#ottawa-check-input').val('');
 
-        let limaCashVal = Number($("#lima-cash-input").val());
+        let limaCashVal = Number($("#lima-cash-input").val().split(',').join(''));
         $('#lima-cash-input').val('');
 
-        let limaCheckVal = Number($("#lima-check-input").val());
+        let limaCheckVal = Number($("#lima-check-input").val().split(',').join(''));
         $('#lima-check-input').val('');
 
-        $('#total').text(totalValue + ottawaCashVal + ottawaCheckVal + limaCashVal + limaCheckVal);
+        $('#total').text((totalValue + ottawaCashVal + ottawaCheckVal + limaCashVal + limaCheckVal).toLocaleString('en', { useGrouping: true }));
 
-        $('#ottawa-cash-subTotal').text(ottawaCashVal + ottawaCashSubTotal);
-        $('#ottawa-check-subTotal').text(ottawaCheckVal + ottawaCheckSubTotal);
+        $('#ottawa-cash-subTotal').text((ottawaCashVal + ottawaCashSubTotal).toLocaleString('en', { useGrouping: true }));
+        $('#ottawa-check-subTotal').text((ottawaCheckVal + ottawaCheckSubTotal).toLocaleString('en', { useGrouping: true }));
 
-        $('#lima-cash-subTotal').text(limaCashVal + limaCashSubTotal);
-        $('#lima-check-subTotal').text(limaCheckVal + limaCheckSubTotal);
+        $('#lima-cash-subTotal').text((limaCashVal + limaCashSubTotal).toLocaleString('en', { useGrouping: true }));
+        $('#lima-check-subTotal').text((limaCheckVal + limaCheckSubTotal).toLocaleString('en', { useGrouping: true }));
 
 
         if (ottawaCheckVal) {
