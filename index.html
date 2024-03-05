@@ -19,64 +19,57 @@
     <div class="location-container">
         <div class="location">Ottawa, OH</div>
         <div>
-            <div id="formContainerCashOttawa"></div>
-            <div id="form1" data-source="index"></div>
+            <div>
+                <form id="ottawa-cash-form" class="myCashForm myForm">
+                    <div class="display-flex">
+                        <div class="display-flex form-right">
+                            <input class="input" placeholder="Cash" />
+                            <button type="submit" class="button-submit">✓</button>
+                        </div>
+
+                        <div class="display-flex form-left">
+                            <div>$</div>
+                            <div id="ottawa-cash-subTotal" class="subTotal">0</div>
+                            <button id="ottawa-cash-clearButton" class="button-clear">X</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div>
+                <form id="ottawa-check-form" class="myCheckForm myForm">
+                    <div class="display-flex">
+                        <div class="display-flex-col form-right">
+                            <div class="display-flex">
+                                <input class="input" placeholder="Checks" />
+                                <button type="submit" class="button-submit">✓</button>
+                            </div>
+                        </div>
+
+                        <div class="display-flex-col">
+                            <div class="display-flex form-left">
+                                <div>$</div>
+                                <div id="ottawa-check-subTotal" class="subTotal">0</div>
+                                <button id="ottawa-check-clearButton" class="button-clear">X</button>
+                            </div>
+
+                            <div class="content">
+                                <div class="checks-text">Checks</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
-    <div class="location-container">
+    <!-- <div class="location-container">
         <div class="location">Lima, OH</div>
         <div>
             <div id="formContainerCashLima"></div>
             <div id="formContainerLima"></div>
         </div>
-    </div>
-
-
-<!-- event capture -->
-
-    <script>
-        fetch('./checkForm.html')
-            .then(response => response.text())
-            .then(data => {
-                // let ottawaForm = data.replace(/__CHECK_FORM_ID__/g, 'ottawaForm');
-                // console.log(Form1)
-                document.getElementById('form1').innerHTML = data;
-
-
-                // let limaForm = data.replace(/__CHECK_FORM_ID__/g, 'limaForm');
-                // let limaForm = data;
-                document.getElementById('formContainerLima').innerHTML = data;
-
-                var script = document.createElement('script');
-                script.src = './script.js';
-                document.body.appendChild(script);
-            })
-            .catch(error => console.error('Error fetching checkForm.html:', error));
-
-        fetch('./cashForm.html')
-            .then(response => response.text())
-            .then(data => {
-                // let ottawaForm = data.replace(/__CASH_FORM_ID__/g, 'ottawaCashForm');
-                let ottawaForm = data;
-                document.getElementById('formContainerCashOttawa').innerHTML = ottawaForm;
-
-                // let limaForm = data.replace(/__CASH_FORM_ID__/g, 'limaCashForm');
-                let limaForm = data;
-                document.getElementById('formContainerCashLima').innerHTML = limaForm;
-
-                var script = document.createElement('script');
-                script.src = './script.js';
-                document.body.appendChild(script);
-            })
-            .catch(error => console.error('Error fetching cashForm.html:', error));
-    </script>
-
-    <!-- <form id="myForm">
-        <input class="input" />
-        <button type="submit">Submit</button>
-        <button id="clearButton">Clear</button>
-    </form> -->
+    </div> -->
 </body>
 
 </html>

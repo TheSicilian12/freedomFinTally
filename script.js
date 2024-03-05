@@ -1,64 +1,67 @@
-$(document).ready(function () {
-    // Event delegation for form submission
-    $(document).on('submit', '#checkForm, #cashForm', function (event) {
-        event.preventDefault();
 
-        let inputValue = Number($(this).find('.input').val());
-        let formId = $(this).attr('id');
-        let formSource = $(this).data('source');
 
-        if (inputValue > 0) {
-            let currentSubTotal = Number($(this).find('#subTotal').text().split(',').join(''))
-            let currentTotal = Number($('#total').text().split(',').join(''))
 
-            let newSubTotal = currentSubTotal + inputValue;
-            let newTotal = currentTotal + inputValue;
+// $(document).ready(function () {
+//     // Event delegation for form submission
+//     $(document).on('submit', '#checkForm, #cashForm', function (event) {
+//         event.preventDefault();
 
-            $(this).closest('div').find('.content').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + inputValue.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > '); // Append to the closest content section relative to the form
-            $(this).find('#subTotal').text(newSubTotal.toLocaleString('en', { useGrouping: true }));
-            $('#total').text(newTotal.toLocaleString('en', { useGrouping: true }));
-            $(this).closest('form').find('.input').val(''); // Clear the input field
-        }
-    });
+//         let inputValue = Number($(this).find('.input').val());
+//         let formId = $(this).attr('id');
+//         let formSource = $(this).data('source');
 
-    // Event delegation for clear button click
-    $(document).on('click', '#clearButton', function (event) {
-        event.preventDefault();
-        $(this).closest('form').find('.content').empty();
-        $(this).closest('form').find('.content').append('<div class="checks-text">Checks</div>');
-        $(this).closest('form').find('.input').val(''); // Clear the input field
+//         if (inputValue > 0) {
+//             let currentSubTotal = Number($(this).find('#subTotal').text().split(',').join(''))
+//             let currentTotal = Number($('#total').text().split(',').join(''))
 
-        let currentTotal = Number($('#total').text().split(',').join(''));
-        let subTotal = Number($(this).closest('form').find('#subTotal').text().split(',').join(''));
+//             let newSubTotal = currentSubTotal + inputValue;
+//             let newTotal = currentTotal + inputValue;
 
-        currentTotal -= subTotal;
+//             $(this).closest('div').find('.content').append('<div class="check-info-container"><div class= "check-info"> ' + '$' + inputValue.toLocaleString('en', { useGrouping: true }) + '</div> <button id="clearCheck" class="button-clear">X</button></div > '); // Append to the closest content section relative to the form
+//             $(this).find('#subTotal').text(newSubTotal.toLocaleString('en', { useGrouping: true }));
+//             $('#total').text(newTotal.toLocaleString('en', { useGrouping: true }));
+//             $(this).closest('form').find('.input').val(''); // Clear the input field
+//         }
+//     });
 
-        let clearType = $(this).attr('id');
+//     // Event delegation for clear button click
+//     $(document).on('click', '#clearButton', function (event) {
+//         event.preventDefault();
+//         $(this).closest('form').find('.content').empty();
+//         $(this).closest('form').find('.content').append('<div class="checks-text">Checks</div>');
+//         $(this).closest('form').find('.input').val(''); // Clear the input field
 
-        // let newTotal = currentTotal - subTotal;
-        $('#total').text(currentTotal.toLocaleString('en', { useGrouping: true }))
-        $(this).closest('form').find('#subTotal').text('0');
-    });
+//         let currentTotal = Number($('#total').text().split(',').join(''));
+//         let subTotal = Number($(this).closest('form').find('#subTotal').text().split(',').join(''));
 
-    $(document).on('click', '#clearCheck', function (event) {
-        event.preventDefault();
-        console.log("clearCheck")
-        let formId = $(this).attr('id');
-        console.log(formId)
+//         currentTotal -= subTotal;
 
-        let parent = $(this).parent();
-        let checkDiv = parent.find('.check-info');
-        let checkVal = parseFloat(checkDiv.text().replace('$', '').replace(/,/g, ''));
+//         let clearType = $(this).attr('id');
 
-        let currentTotal = Number($('#total').text().split(',').join(''));
-        let subTotal = Number($(this).closest('form').find('#subTotal').text().split(',').join(''));
+//         // let newTotal = currentTotal - subTotal;
+//         $('#total').text(currentTotal.toLocaleString('en', { useGrouping: true }))
+//         $(this).closest('form').find('#subTotal').text('0');
+//     });
 
-        currentTotal -= 0.5 * checkVal;
-        subTotal -= checkVal;
+//     $(document).on('click', '#clearCheck', function (event) {
+//         event.preventDefault();
+//         console.log("clearCheck")
+//         let formId = $(this).attr('id');
+//         console.log(formId)
 
-        $('#total').text(currentTotal.toLocaleString('en', { useGrouping: true }))
-        $(this).closest('form').find('#subTotal').text(subTotal);
+//         let parent = $(this).parent();
+//         let checkDiv = parent.find('.check-info');
+//         let checkVal = parseFloat(checkDiv.text().replace('$', '').replace(/,/g, ''));
 
-        parent.remove();
-    })
-});
+//         let currentTotal = Number($('#total').text().split(',').join(''));
+//         let subTotal = Number($(this).closest('form').find('#subTotal').text().split(',').join(''));
+
+//         currentTotal -= 0.5 * checkVal;
+//         subTotal -= checkVal;
+
+//         $('#total').text(currentTotal.toLocaleString('en', { useGrouping: true }))
+//         $(this).closest('form').find('#subTotal').text(subTotal);
+
+//         parent.remove();
+//     })
+// });
