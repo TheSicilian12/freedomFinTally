@@ -48,6 +48,16 @@ $(document).ready(function () {
         $('#total').text((totalValue - ottawaCashSubTotal).toLocaleString('en', { useGrouping: true }));
     });
 
+    $(document).on('click', '#lima-cash-clearButton', function (event) {
+        event.preventDefault();
+
+        let totalValue = Number($('#total').text().split(',').join(''));
+        let limaCashSubTotal = Number($('#lima-cash-subTotal').text().split(',').join(''));
+
+        $('#lima-cash-subTotal').text(0);
+        $('#total').text((totalValue - limaCashSubTotal).toLocaleString('en', { useGrouping: true }));
+    });
+
 });
 
 
